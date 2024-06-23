@@ -7,15 +7,20 @@ import {
   Patch,
   Delete,
   Query,
+  Inject,
 } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
+import { COFFEE_BRANDS } from './coffee.constans';
 
 @Controller('coffees')
 export class CoffeesController {
-  constructor(private readonly coffeeService: CoffeesService) {}
+  constructor(
+    private readonly coffeeService: CoffeesService,
+    @Inject(COFFEE_BRANDS) coffeeBrands,
+  ) {}
 
   @Get()
   findAll(@Query() pagingQuery: PaginationQueryDto) {
