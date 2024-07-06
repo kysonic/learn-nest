@@ -2,11 +2,11 @@ import * as path from 'path';
 import { DataSource } from 'typeorm';
 
 export const AppDataSource = new DataSource({
-  type: 'postgres',
+  type: 'mysql',
   host: 'localhost',
-  port: 5432,
-  username: 'spotikuser',
-  password: 'potikpassword',
+  port: 3306,
+  username: 'root',
+  password: 'pass',
   database: 'learn-nest',
   entities: ['src/**/*.entity.ts'],
   subscribers: [],
