@@ -41,8 +41,12 @@ class CoffeeBrandFactory {
     // },
     {
       provide: COFFEE_BRANDS,
-      useFactory: (coffeeBrandFactory: CoffeeBrandFactory) =>
-        coffeeBrandFactory.create(),
+      useFactory: async (coffeeBrandFactory: CoffeeBrandFactory) => {
+        // sql run some query
+        const brands = await Promise.resolve(coffeeBrandFactory.create());
+        console.log('Async factory', brands);
+        return brands;
+      },
       inject: [CoffeeBrandFactory],
     },
     {
