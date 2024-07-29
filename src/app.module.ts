@@ -8,6 +8,7 @@ import { DbModule } from './db/db.module';
 import { EventModule } from './events/event.module';
 import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { DatabaseModule } from './database/database.module';
+import { CommonModule } from './common/common.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,6 +19,7 @@ import { DatabaseModule } from './database/database.module';
     CoffeeRatingModule,
     DatabaseModule,
     DbModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [
